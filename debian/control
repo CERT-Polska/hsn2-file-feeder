@@ -1,0 +1,7 @@
+Package: hsn2-file-feeder
+Version: {VER}
+Section: unknown
+Priority: optional
+Architecture: all
+Maintainer: Juliusz Brzostek (juliusz.brzostek@cert.pl)
+Description: HSN2 File Feeder Component.
