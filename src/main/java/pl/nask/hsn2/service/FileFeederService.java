@@ -33,7 +33,7 @@ public final class FileFeederService {
 
 		cmd.parseParams(args);
 
-		GenericService service = new GenericService(new FileFeederTaskFactory(), cmd.getMaxThreads(), cmd.getRbtCommonExchangeName());
+		GenericService service = new GenericService(new FileFeederTaskFactory(), cmd.getMaxThreads(), cmd.getRbtCommonExchangeName(), cmd.getRbtNotifyExchangeName());
 		cmd.applyArguments(service);
 		service.run();
 	}
