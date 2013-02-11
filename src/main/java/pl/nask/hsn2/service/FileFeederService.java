@@ -62,9 +62,9 @@ public final class FileFeederService implements Daemon{
 		cmd.setDefaultServiceNameAndQueueName("feeder-list");
 
 		cmd.parseParams(context.getArguments());
-		final GenericService service = new GenericService(new FileFeederTaskFactory(), cmd.getMaxThreads(), cmd.getRbtCommonExchangeName());
+		final GenericService service = new GenericService(new FileFeederTaskFactory(), cmd.getMaxThreads(), cmd.getRbtCommonExchangeName(), cmd.getRbtNotifyExchangeName());
 		cmd.applyArguments(service);
-		
+
 		serviceRunner = new Thread(new Runnable() {
 			
 			@Override
