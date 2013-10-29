@@ -46,7 +46,7 @@ public final class FileFeederService extends ServiceMain{
 	}
 
 	@Override
-	protected TaskFactory createTaskFactory() {
-		return new FileFeederTaskFactory();
+	protected Class<? extends TaskFactory> initializeTaskFactory() {
+		return FileFeederTaskFactory.class;
 	}
 }
