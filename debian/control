@@ -1,11 +1,11 @@
-Source: hsn2-filefeeder
+Source: hsn2-file-feeder
 Section: unknown
 Priority: optional
 Maintainer: CERT Polska <info@cert.pl>
 Build-Depends: debhelper (>= 8.0.0), maven
 Standards-Version: 3.9.3
 
-Package: hsn2-filefeeder
+Package: hsn2-file-feeder
 Architecture: all
-Depends: ${misc:Depends}
+Depends: ${misc:Depends}, java-wrappers, openjdk-7-jre, jsvc
 Description: HSN2 File Feeder Component.
