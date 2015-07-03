@@ -107,4 +107,5 @@
 			</build>
 		</profile>
 	</profiles>
+	<description>The HSN2 File Feeder service reads a local (in regards to the file feeder service) or remote text file containing a list of URLs for processing.</description>
 </project>
