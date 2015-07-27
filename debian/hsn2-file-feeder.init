@@ -15,7 +15,7 @@ HSN2_COMPONENT="file-feeder"
 MAINCLASS="pl.nask.hsn2.service.FileFeederService"
 CONFFILE=/etc/hsn2/file-feeder.conf
 
-HSN2_JMX_PORT=1104
+#HSN2_JMX_PORT=1104
 
 . /lib/hsn2/init-functions-java
 
