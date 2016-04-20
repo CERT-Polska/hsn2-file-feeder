@@ -1,8 +1,8 @@
 /*
  * Copyright (c) NASK, NCSC
- * 
+ *
  * This file is part of HoneySpider Network 2.0.
- * 
+ *
  * This is a free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -26,8 +26,8 @@ import pl.nask.hsn2.ServiceMain;
 import pl.nask.hsn2.task.TaskFactory;
 
 public final class FileFeederService extends ServiceMain{
-	
-	public static void main(final String[] args) throws DaemonInitException, Exception {
+
+	public static void main(final String[] args) throws DaemonInitException {
 		FileFeederService ffs = new FileFeederService();
 		ffs.init(new DefaultDaemonContext(args));
 		ffs.start();

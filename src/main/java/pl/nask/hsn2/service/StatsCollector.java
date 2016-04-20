@@ -1,8 +1,8 @@
 /*
  * Copyright (c) NASK, NCSC
- * 
+ *
  * This file is part of HoneySpider Network 2.0.
- * 
+ *
  * This is a free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -37,11 +37,11 @@ public class StatsCollector {
         this.makeStats = makeStats;
     }
 
-    public int getUrlCount() {
+    public final int getUrlCount() {
         return urlCount;
     }
 
-    public void collectStats(NewUrlObject newObject) {
+    public final void collectStats(NewUrlObject newObject) {
         if (endTime != 0) {
             throw new IllegalStateException(COLLECTING_ENDED_MSG);
         }
@@ -71,38 +71,38 @@ public class StatsCollector {
         }
     }
 
-    public int getDomainCount() {
+    public final int getDomainCount() {
         return domainCount;
     }
 
-    public int getDomainIdnCount() {
+    public final int getDomainIdnCount() {
         return domainIdnCount;
     }
 
-    public int getIPv4Count() {
+    public final int getIPv4Count() {
         return ipv4Count;
     }
 
-    public int getIPv6Count() {
+    public final int getIPv6Count() {
         return ipv6Count;
     }
 
-    public void collectingEnded() {
-        this.endTime = System.currentTimeMillis();
+    public final void collectingEnded() {
+        endTime = System.currentTimeMillis();
     }
 
-    public void collectingStarted() {
+    public final void collectingStarted() {
         if (endTime != 0) {
             throw new IllegalStateException(COLLECTING_ENDED_MSG);
         }
-        this.startTime = System.currentTimeMillis();
+        startTime = System.currentTimeMillis();
     }
 
-    public long getStartTime() {
+    public final long getStartTime() {
         return startTime;
     }
 
-    public long getEndTime() {
+    public final long getEndTime() {
         return endTime;
     }
 }
