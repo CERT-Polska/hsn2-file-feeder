@@ -1,7 +1,15 @@
-Package: hsn2-file-feeder
-Version: {VER}
-Section: unknown
+Source: hsn2-file-feeder
+Section: java
 Priority: optional
+Maintainer: CERT Polska <info@cert.pl>
+Build-Depends: debhelper (>= 8.0.0), maven
+Standards-Version: 3.9.3
+
+Package: hsn2-file-feeder
 Architecture: all
-Maintainer: Juliusz Brzostek (juliusz.brzostek@cert.pl)
+Depends: ${misc:Depends}, hsn2-commons-debian, java-wrappers, openjdk-7-jre, jsvc
+Homepage: http://www.honeyspider.net
 Description: HSN2 File Feeder Component.
+ The HSN2 File Feeder service reads a local 
+ (in regards to the file feeder service) or remote text file 
+ containing a list of URLs for processing.

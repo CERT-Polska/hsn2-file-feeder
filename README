@@ -1,13 +1,14 @@
 HSN2 File Feeder (hsn2-file-feeder)
 
 
-The HSN2 File Feeder service functionality to access a local or remote text file
-containing a list of URLs for processing.
+The HSN2 File Feeder service reads a local (in regards 
+to the file feeder service) or remote text file containing a list 
+of URLs for processing.
 
 
 
 
-This repository is a part of bigger project: Honeyspider Network 2.0.
+This repository is a part of bigger project: Honeyspider Network 2.1.
 Project bundle is located at: https://github.com/CERT-Polska/hsn2-bundle.
 More information is available on the project's website:
 http://www.honeyspider.net

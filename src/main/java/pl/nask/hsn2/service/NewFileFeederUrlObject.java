@@ -1,8 +1,8 @@
 /*
  * Copyright (c) NASK, NCSC
- * 
- * This file is part of HoneySpider Network 2.0.
- * 
+ *
+ * This file is part of HoneySpider Network 2.1.
+ *
  * This is a free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -33,8 +33,9 @@ public class NewFileFeederUrlObject extends NewUrlObject {
 		this.addDomainInfo = addDomainInfo;
 	}
 
-	// FileFeeder does not add a reference to parent 
-	public ObjectData asDataObject(Long parentId) {
+	// FileFeeder does not add a reference to parent
+	@Override
+	public final ObjectData asDataObject(Long parentId) {
 		ObjectDataBuilder objectBuilder = new ObjectDataBuilder();
 		objectBuilder.addStringAttribute("type", "url");
 		objectBuilder.addStringAttribute("url_original", getOriginalUrl());

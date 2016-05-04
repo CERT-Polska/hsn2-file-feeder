@@ -1,8 +1,8 @@
 /*
  * Copyright (c) NASK, NCSC
- * 
- * This file is part of HoneySpider Network 2.0.
- * 
+ *
+ * This file is part of HoneySpider Network 2.1.
+ *
  * This is a free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -19,22 +19,34 @@
 
 package pl.nask.hsn2.service;
 
-import pl.nask.hsn2.CommandLineParams;
-import pl.nask.hsn2.GenericService;
+import org.apache.commons.daemon.DaemonInitException;
 
-public final class FileFeederService {
-	private FileFeederService() {
+import pl.nask.hsn2.CommandLineParams;
+import pl.nask.hsn2.ServiceMain;
+import pl.nask.hsn2.task.TaskFactory;
+
+public final class FileFeederService extends ServiceMain{
+
+	public static void main(final String[] args) throws DaemonInitException {
+		FileFeederService ffs = new FileFeederService();
+		ffs.init(new DefaultDaemonContext(args));
+		ffs.start();
 	}
 
-	public static void main(String[] args) throws InterruptedException {
+	@Override
+	protected CommandLineParams newCommandLineParams() {
 		CommandLineParams cmd = new CommandLineParams();
 		cmd.useDataStoreAddressOption(false);
 		cmd.setDefaultServiceNameAndQueueName("feeder-list");
+		return cmd;
+	}
 
-		cmd.parseParams(args);
+	@Override
+	protected void prepareService() {
+	}
 
-		GenericService service = new GenericService(new FileFeederTaskFactory(), cmd.getMaxThreads(), cmd.getRbtCommonExchangeName());
-		cmd.applyArguments(service);
-		service.run();
+	@Override
+	protected Class<? extends TaskFactory> initializeTaskFactory() {
+		return FileFeederTaskFactory.class;
 	}
 }

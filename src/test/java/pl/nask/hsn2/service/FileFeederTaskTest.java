@@ -1,7 +1,7 @@
 /*
  * Copyright (c) NASK, NCSC
  * 
- * This file is part of HoneySpider Network 2.0.
+ * This file is part of HoneySpider Network 2.1.
  * 
  * This is a free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -36,10 +36,11 @@ import pl.nask.hsn2.bus.operations.builder.ObjectResponseBuilder;
 import pl.nask.hsn2.protobuff.Object.ObjectData;
 import pl.nask.hsn2.wrappers.ParametersWrapper;
 
+@SuppressWarnings({ "unchecked", "unused" })
 public class FileFeederTaskTest {
 	@Mocked
 	ServiceConnector serviceConnector;
-	
+
 	@Test
 	public void testCheckHandlingOfEmptyLines() throws Exception {
 
@@ -47,20 +48,22 @@ public class FileFeederTaskTest {
 		// file contains empty lines and two urls
 		map.put("uri", "file.txt");
 		ParametersWrapper params = new ParametersWrapper(map);
-		
+
 		TaskContext ctx = new TaskContext(1, 1, 1, serviceConnector);
-		FileFeederTask task = new FileFeederTask(ctx , params );
-		
-		new NonStrictExpectations() {{ 
-			serviceConnector.saveObjects(anyLong, withInstanceOf(List.class));
-			forEachInvocation = new Object() {
-				public void validate(long id, List<ObjectData> list) {
-					Assert.assertEquals("number of objects to be added", 2, list.size());
-				}
-			};
-			result=new ObjectResponseBuilder(ResponseType.SUCCESS_PUT).addObject(0).build();
-		}};
-		
+		FileFeederTask task = new FileFeederTask(ctx, params);
+
+		new NonStrictExpectations() {
+			{
+				serviceConnector.saveObjects(anyLong, withInstanceOf(List.class));
+				forEachInvocation = new Object() {
+					public void validate(long id, List<ObjectData> list) {
+						Assert.assertEquals("number of objects to be added", 2, list.size());
+					}
+				};
+				result = new ObjectResponseBuilder(ResponseType.SUCCESS_PUT).addObject(0).build();
+			}
+		};
+
 		task.process();
 		List<Long> list = ctx.getAddedObjects();
 		ctx.flush();

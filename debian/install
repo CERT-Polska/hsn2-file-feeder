@@ -1,0 +1,2 @@
+build/file-feeder /opt/hsn2/
+file-feeder.conf /etc/hsn2/
